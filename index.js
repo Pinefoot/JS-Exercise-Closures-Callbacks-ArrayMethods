@@ -1,5 +1,5 @@
 // ⭐️ Example Challenge START ⭐️
-
+//const runners= require("./data/runners.js");
 /**
  * ### Challenge `processFirstItem`
  * 
@@ -167,7 +167,7 @@ return callback(isThisTrue);
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
@@ -197,6 +197,7 @@ function getFullNames(runners) {
     return fullName;
 }
 
+
 /**
  * ### Challenge `firstNamesAllCaps`
  * 
@@ -210,11 +211,13 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  const capitalize = runners.map(function (makeCap){
-     makeCap.first_name.toUpperCase;
-     
+  const allCaps = [];
+  runners.forEach((index)=> {
+    allCaps.push(index.first_name.toUpperCase());
+
   });
-  return capitalize;
+  return allCaps;
+    
 }
 
 /**
@@ -230,8 +233,14 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
+function getRunnersByTShirtSize(runners, tShirtSize) {
   /* CODE HERE */
+  let newT = [];
+  runners.forEach((index)=>{
+    newT.push(tShirtSize.shirt_size.sort());
+    
+  });
+  return newT;
 }
 
 /**
