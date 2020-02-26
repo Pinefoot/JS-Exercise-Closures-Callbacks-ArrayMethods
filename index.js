@@ -168,6 +168,9 @@ return callback(isThisTrue);
  * should return 3.
 */
 function processDuplicateFree(list, callback) {
+  let dupDestroyer = [];
+  list.from(new Set(dupDestroyer));
+  return dupDestroyer;
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
@@ -234,7 +237,11 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  let sizeOfShirt = [];
+  const sizeOfShirt = runners.filter((giveAShirt)=>{
+   return giveAShirt.shirt_size === tShirtSize;
+  })
+  return sizeOfShirt;
+  
   
 }
 
@@ -248,8 +255,11 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  let total = runners.reduce((accumulate, items)=>{
+    return accumulate + items.donation;
+  }, 0);
+  return total;
 }
 
 /////////////// CLOSURES ///////////////
@@ -270,9 +280,9 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let count = -1;
+  return function counter() {
+    return ++ count;
   }
   // BROKEN CODE ENDS
 }
@@ -297,9 +307,19 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(maxVal) {
+  let count = -1;
+  return function counter() {
+    if (count === maxVal){
+       count = -1;
+    }
+   
+      return ++ count;
+    };
+    
+
 }
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
