@@ -234,13 +234,8 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  /* CODE HERE */
-  let newT = [];
-  runners.forEach((index)=>{
-    newT.push(tShirtSize.shirt_size.sort());
-    
-  });
-  return newT;
+  let sizeOfShirt = [];
+  
 }
 
 /**
