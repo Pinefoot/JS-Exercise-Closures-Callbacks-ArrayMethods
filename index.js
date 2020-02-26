@@ -168,9 +168,10 @@ return callback(isThisTrue);
  * should return 3.
 */
 function processDuplicateFree(list, callback) {
-  let dupDestroyer = [];
-  list.from(new Set(dupDestroyer));
-  return dupDestroyer;
+  let dupDestroyer = (new Set(list));
+
+  let newList = [...dupDestroyer];
+  return newList;
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
